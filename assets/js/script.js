@@ -12,9 +12,52 @@ let quizTime = 120;
 // questions array
 // questions with answer choices.
 // correct answer.
+const questions = [
+  {
+    question: 'What is the name of the ship our bounty hunters are on?',
+    options: ['swordfish', 'red tail', 'hammer head', 'bebop'],
+    answer: 3,
+    },
+    {
+      question: `Who is Spike's friend, turned enemy?`,
+      options: ['Faye', 'Jet', 'Vicious', 'Mao'],
+      answer: 2,
+      },
+      {
+        question: `How does nearly every episode end?`,
+        options: [`3...2...1... Let's Jam!`, `You're Gonna Carry That Weight`, `...See You Space Cowboy`, '...Bang'],
+        answer: 2,
+        },
+        {
+          question: 'Where does the series take place?',
+          options: ['Earth', 'Mars', 'Outer Space...duh', 'The wild, wild west'],
+          answer: 2,
+          },
+]
 
 
 
+
+
+
+
+
+
+function secondHandler(){
+  quizTime--;
+  timeRemaingingEl.innerHTML = quizTime;
+  //tbd have code here for end quiz also
+}
+
+function startQuiz (){
+  console.log("startQuiz called");
+  startDivEl.setAttribute('class','hide');
+  startDivEl.style.display = 'none';
+  questionsDivEl.removeAttribute('class');
+  quizTimerId = setInterval(secondHandler, 1000);
+  timeRemaingingEl.innerHTML = quizTime;
+}
+startButton.onclick = startQuiz;
 
 
 
@@ -116,18 +159,3 @@ let quizTime = 120;
 //   }
 // });
 // init();
-function secondHandler(){
-quizTime--;
-timeRemaingingEl.innerHTML = quizTime;
-//tbd have code here for end quiz also
-}
-
-function startQuiz (){
-  console.log("startQuiz called");
- startDivEl.setAttribute('class','hide');
- startDivEl.style.display = 'none';
- questionsDivEl.removeAttribute('class');
- quizTimerId = setInterval(secondHandler, 1000);
- timeRemaingingEl.innerHTML = quizTime;
-}
-startButton.onclick = startQuiz;
