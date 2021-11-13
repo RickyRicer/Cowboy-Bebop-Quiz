@@ -5,9 +5,36 @@
 let startButton = document.getElementById('start');
 let startDivEl = document.getElementById('start-div');
 let questionsDivEl = document.getElementById('questions-div');
+let optionsEl = document.getElementById('answer-choices')
 let timeRemaingingEl = document.getElementById('timeremaining');
 let quizTimerId; 
-let quizTime = 120;
+let quizTime = 90;
+
+
+function startQuiz (){
+  // Hide Start Button/Intro
+  startDivEl.setAttribute('class','hide');
+  startDivEl.style.display = 'none';
+  questionsDivEl.removeAttribute('class');
+  // Starts the timer
+  quizTimerId = setInterval(secondHandler, 1000);
+  timeRemaingingEl.innerHTML = quizTime;
+
+  showQuestions();
+  console.log('showQuestions');
+};
+
+startButton.onclick = startQuiz;
+
+function showQuestions (){
+  let currentQuestion = [0];
+  for(let i = 0; i < currentQuestion.options.length; i++){
+    
+    let optionsButton = document.createElement("button");
+    optionsButton.textContent = currentQuestion.options[i];
+
+    optionsEl.appendChild(optionsButton)}
+  }
 
 // questions array
 // questions with answer choices.
@@ -48,16 +75,6 @@ function secondHandler(){
   timeRemaingingEl.innerHTML = quizTime;
   //tbd have code here for end quiz also
 }
-
-function startQuiz (){
-  console.log("startQuiz called");
-  startDivEl.setAttribute('class','hide');
-  startDivEl.style.display = 'none';
-  questionsDivEl.removeAttribute('class');
-  quizTimerId = setInterval(secondHandler, 1000);
-  timeRemaingingEl.innerHTML = quizTime;
-}
-startButton.onclick = startQuiz;
 
 
 
