@@ -9,6 +9,7 @@ let optionsEl = document.getElementById('answer-choices')
 let timeRemaingingEl = document.getElementById('timeremaining');
 let quizTimerId; 
 let quizTime = 90;
+//
 
 
 function startQuiz (){
@@ -27,18 +28,18 @@ function startQuiz (){
 startButton.onclick = startQuiz;
 
 function showQuestions (){
-  let currentQuestion = [0];
+  let cu;
   for(let i = 0; i < currentQuestion.options.length; i++){
     
     let optionsButton = document.createElement("button");
     optionsButton.textContent = currentQuestion.options[i];
-
+    
     optionsEl.appendChild(optionsButton)}
   }
-
-// questions array
-// questions with answer choices.
-// correct answer.
+  
+  // questions array
+  // questions with answer choices.
+  // correct answer.
 const questions = [
   {
     question: 'What is the name of the ship our bounty hunters are on?',
