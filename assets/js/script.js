@@ -7,8 +7,10 @@ let startDivEl = document.getElementById('start-div');
 let questionsDivEl = document.getElementById('questions-div');
 let optionsEl = document.getElementById('answer-choices')
 let timeRemaingingEl = document.getElementById('timeremaining');
+
+let currentQuestionIndex = 0;
 let quizTimerId; 
-let quizTime = 3;
+let quizTime = 90;
 //getting the correct value from an object object manipulation object properties
 // CurrentQuestion variable and currentquestion index variable
 
@@ -55,42 +57,48 @@ const questions = [
 ]
 
 function showQuestions (){
+  //Pulls a question from the array
   let currentQuestion = questions[currentQuestionIndex];
-
+  //Current question
   questionsDivEl.children[0].textContent = currentQuestion.question;
-
+  //For loop to go over question answers
   for(let i = 0; i < currentQuestion.options.length; i++){
-    
+    // Create a button for each option
     let optionsButton = document.createElement("button");
     optionsButton.textContent = currentQuestion.options[i];
     
-    optionsEl.appendChild(optionsButton)}
+    optionsEl.appendChild(optionsButton)};
   }
 
-function quizEnd (){
-  // stop the quiz time
-  clearInterval(quizTime);
-  timeRemaingingEl.textContent = quizTime;
+  
 
-  //show final page and score 
-  let endDiv = document.getElementById('end-div');
-  endDiv.setAttribute('class','');
-  let finalScore = document.getElementById('final-score');
-  finalScore.textContent = quizTime;
-
-  //Hide Questions
-  questionsDivEl.setAttribute('class', 'hide');
-
-}
-
-function secondHandler(){
-  quizTime--;
-  timeRemaingingEl.innerHTML = quizTime;
-  if(quizTime <= 0)
-    quizEnd();
-}
+  
+  function secondHandler(){
+    // Countdown
+    quizTime--;
+    timeRemaingingEl.innerHTML = quizTime;
 
 
+    if(quizTime <= 0);
+    quizStop();
+  }
+  
+  
+  function quizStop(){
+    // stop the quiz time
+    clearInterval(quizTime);
+    timeRemaingingEl.textContent = quizTime;
+  
+    //show final page and score 
+    let endDiv = document.getElementById('end-div');
+    endDiv.setAttribute('class','');
+    let finalScore = document.getElementById('final-score');
+    finalScore.textContent = quizTime;
+  
+    //Hide Questions
+    questionsDivEl.setAttribute('class', 'hide');
+  
+  }
 
 
 
