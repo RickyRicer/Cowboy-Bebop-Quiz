@@ -2,6 +2,8 @@
 // Subtract time from the questions when an answer is wrong.
 // Game is over when all ?s are answered or timer hits 0
 // Save scores in local storage 
+
+//Dom elements
 let startButton = document.getElementById('start');
 let startDivEl = document.getElementById('start-div');
 let questionsDivEl = document.getElementById('questions-div');
@@ -61,43 +63,43 @@ const questions = [
 ]
 
 function choiceClick(){
-  if (this.value !== questions[currentQuestionIndex].answer){
+  if (this.value != questions[currentQuestionIndex].answer){    
     quizTime -= 10;
+    
     if (quizTime <= 0){
       quizTime = 0;
     }
     timeRemaingingEl.textContent = quizTime;
-    // tbd user feedback wrong answer
+    // user feedback wrong answer
     feedbackEl.textContent = 'Wrong answer';
   }
   else{
-    //tbd feedback right answer
+    // feedback right answer
     feedbackEl.textContent = 'Correct answer';
   } 
   feedbackEl.setAttribute('class', 'feedback');
   setTimeout(function() {
     feedbackEl.setAttribute('class', 'feedback hide');
   }, 1000);
-  
+  // Next Question or stop the quiz
   currentQuestionIndex++;
   if (currentQuestionIndex === questions.length){
     quizStop();
   } else {
     showQuestions()
   }
+
+  
 }
 
 
 function showQuestions (){
   //Pulls a question from the array
   let currentQuestion = questions[currentQuestionIndex];
-
   //Current question
   questionsDivEl.children[0].textContent = currentQuestion.question;
-
     //clear contents out questionsDiv
     optionsEl.innerHTML = '';
-  
   //For loop to go over question answers
   for(let i = 0; i < currentQuestion.options.length; i++){
     // Create a button for each option
@@ -108,32 +110,9 @@ function showQuestions (){
     optionsButton.onclick = choiceClick;
     
     optionsEl.appendChild(optionsButton)};
-    //Creates an event listener for each answer option
-    // optionsEl.children[0].addEventListener('click', function(event){
-    //   questionChoice(optionsEl.children[0]);
-    // });
-    // optionsEl.children[1].addEventListener('click', function(event){
-    //   questionChoice(optionsEl.children[1]);
-    // });
-    // optionsEl.children[2].addEventListener('click', function(event){
-    //   questionChoice(optionsEl.children[2]);
-    // });
-    // optionsEl.children[3].addEventListener('click', function(event){
-    //   questionChoice(optionsEl.children[3]);
-    // });
+
   }
 
-  // Function to check if user selected right or wrong answers
-  // function questionChoice (answerChoice){
-  //   if(answerChoice.textContent != questions[currentQuestionIndex].answer){
-  //     quizTime -= 10;
-  //   }
-  //   currentQuestionIndex++;
-  //     if(currentQuestionIndex === questions.length)
-  //   quizStop();
-  //     else
-  //   showQuestions();
-  // }
   
   function secondHandler(){
     // Countdown
@@ -178,11 +157,7 @@ function showQuestions (){
     }
     else{
       highScores = JSON.parse(window.localStorage.getItem('highscores')) || []; 
-    // if(JSON.parse(localStorage.getItem('highscores')) != null)
-    //   highscores = JSON.parse(window.localStorage.getItem('highscores'));
-    // else
-    //   highscores = [];
-
+  
 
     let newScore = {
       initials: initials,
