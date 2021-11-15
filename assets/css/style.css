@@ -7,6 +7,11 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #000000;
+  background-image: url("https://miro.medium.com/max/700/1*9IIoxOcIbhMFFKMCI2ncuQ.jpeg");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #fff9a9;
 }
 
@@ -90,3 +95,14 @@ li::after {
   display: block;
   clear: both;
 }
+
+
+@media screen and ( max-width: 1024px ) {
+  img.responsive { width: 200px; }
+  }
+  @media screen and ( min-width:1025px ) and ( max-width: 1280px ) {
+  img.responsive { width: 300px; }
+  }
+  @media screen and ( min-width: 1081px ) {
+  img.responsive { width: 200px; }
+  }
