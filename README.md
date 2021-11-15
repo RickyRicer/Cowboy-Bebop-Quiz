@@ -9,7 +9,7 @@ Wow, this was a tough one. I'm still struggling with the syntax of javascript, b
 ## Screenshots
 
 Here is a screenshot of my quiz on desktop:
-![Screenshot of my Cowboy Bebop Quiz](.\assets\quizscreengrab.JPG)
+![Screenshot of my Cowboy Bebop Quiz](...\assets\quizscreengrab.JPG)
 
 
   
