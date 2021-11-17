@@ -43,22 +43,22 @@ const questions = [
 {
   question: 'What is the name of the ship our bounty hunters are on?',
   options: ['swordfish', 'red tail', 'hammer head', 'bebop'],
-  answer: 3,
+  answer: 'bebop',
   },
   {
     question: `Who is Spike's friend, turned enemy?`,
     options: ['Faye', 'Jet', 'Vicious', 'Mao'],
-    answer: 2,
+    answer: 'Vicious',
     },
     {
       question: `How does nearly every episode end?`,
       options: [`3...2...1... Let's Jam!`, `You're Gonna Carry That Weight`, `...See You Space Cowboy`, '...Bang'],
-      answer: 2,
+      answer: '...See You Space Cowboy',
       },
       {
         question: 'Where does the series take place?',
         options: ['Earth', 'Mars', 'Outer Space...duh', 'The wild, wild west'],
-        answer: 2,
+        answer: 'Outer Space...duh',
         },
 ]
 
@@ -89,7 +89,7 @@ function choiceClick(){
     showQuestions()
   }
 
-  
+
 }
 
 
